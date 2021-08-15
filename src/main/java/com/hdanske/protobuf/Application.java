@@ -4,6 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import com.hdanske.protobuf.ProtobufTraining.*;
+import org.springframework.http.converter.protobuf.ProtobufHttpMessageConverter;
 
 import java.util.*;
 
@@ -12,6 +13,11 @@ public class Application {
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
+
+//    @Bean
+//    ProtobufHttpMessageConverter protobufHttpMessageConverter(){
+//        return  new ProtobufHttpMessageConverter();
+//    }
 
     @Bean
     public CourseRepository createTestCourses(){
