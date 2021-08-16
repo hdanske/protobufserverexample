@@ -1,10 +1,12 @@
 package com.hdanske.protobuf;
 
+import java.util.ArrayList;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import com.hdanske.protobuf.ProtobufTraining.*;
 import org.springframework.http.converter.protobuf.ProtobufHttpMessageConverter;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.*;
 
@@ -14,10 +16,17 @@ public class Application {
         SpringApplication.run(Application.class, args);
     }
 
+
+//Разобраться, что с этим не так
 //    @Bean
-//    ProtobufHttpMessageConverter protobufHttpMessageConverter(){
-//        return  new ProtobufHttpMessageConverter();
+//    RestTemplate restTemplate(ProtobufHttpMessageConverter hmc) {
+//        return new RestTemplate(Arrays.asList(hmc));
 //    }
+//---------------------------------//
+    @Bean
+    ProtobufHttpMessageConverter protobufHttpMessageConverter(){
+        return  new ProtobufHttpMessageConverter();
+    }
 
     @Bean
     public CourseRepository createTestCourses(){
